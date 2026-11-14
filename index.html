@@ -1,13 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ws-chat</title>
+    <title>Групповой чат</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <section id="auth-view">
+        <h1>Групповой чат</h1>
+        <form id="auth-form">
+          <input id="username" placeholder="Логин" required autocomplete="username" />
+          <input id="password" type="password" placeholder="Пароль" required autocomplete="current-password" />
+          <div class="row">
+            <button type="submit">Войти</button>
+            <button type="button" id="register-btn">Зарегистрироваться</button>
+          </div>
+          <p id="auth-error" class="error"></p>
+        </form>
+      </section>
+
+      <section id="chat-view" hidden>
+        <header>
+          <span>Вы вошли как <b id="me"></b></span>
+          <button id="logout-btn">Выйти</button>
+        </header>
+        <div id="messages"></div>
+        <form id="send-form">
+          <input id="text" placeholder="Сообщение" autocomplete="off" required />
+          <button type="submit">Отправить</button>
+        </form>
+        <p id="status" class="status"></p>
+      </section>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
